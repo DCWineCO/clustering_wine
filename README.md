@@ -76,7 +76,14 @@ feature selection.
 
 ### Initial Questions
 
-Blah blah
+1. Does alcohol effect wine quality?
+1. Does density effect wine quality?
+1. Do chlorides effect wine quality?
+1. Is there a difference in quality for red or white wine?
+1. Is there a correlation between volatile acidity and quality?
+1. Is there a linear correlation between residual free sulphur and quality?
+
+
 
 ***
 
@@ -91,80 +98,107 @@ Blah blah
 
 ### Exploratory Data Analysis
 
-- goals
-- tools
-- methods
-- findings
+1. negative correlations:
 
-**Univariate Analysis**
+    a. fixed acidity
+    
+    b. volatile acidity
+    
+    c. chlorides
+    
+    d. total sulfur dioxide
+    
+    e. density
+    
+2. positive correlations:
+    
+    a. citric acid
+    
+    b. free sulfur dioxide
+    
+    c. alcohol
+    
+    d. is red
+    
+3. no correlation:
+    
+    a. residual sugar
+    
+    b. pH
+    
+    c. sulphates
+    
+4. Clusters:
 
-- blah blah
-
-**Bivariate Analysis**
- 
-- blah blah
-
-**Multivariate Analysis**
-
-- blah blah
-
+    We spent some effort examining different combinations of variables for useful clusters to aid in regression or classification, but we did not find any that beat our non-cluster models.
+    
 ***
 ### Pre-processing
 
-- goals
-- tools
-- methods
-- findings
+1. split target from features for all datasets
+
+1. scaled X_train, X_validate, X_test
 
 ***
 
 ### Modeling
 
-- goals
-- tools
-- methods
-- findings
+1. We chose to treat this as a regression problem
+
+1. Regression algorithms used:
+
+    a. OLS regressor
+    
+    b. Tweedie Regressor
+    
+    c. Polynomial Features
+    
+    d. LassoLars 
+
+1. Findings: Our best model was a Polynomial Regression on all features that decreased errors by 23.35% over baseline
 
 ***
 
 ### Model Evaluation
 
-- goals
-- tools
-- methods
-- findings
+1. established a baseline by testing mean and median quality values as predictions. We found that mean had a slightly lower RMSE and settled on that as a baseline model.
+
+1. We used RMSE as our evaluation metric supplemented by plotting overlaid histograms of predicted and actual values to understand where the model performed well and where it didn't.
 
 ***
 
 ### Conclusions
 
-- goals
-- tools
-- methods
-- findings
+1. We achieved our goals of finding drivers of wine quality as well as creating a model that outperforms baseline predictions of quality.
+
+1. However, our model did not perform well at predicting high quality wines.
+
+1. We found that almost all features were needed to get the best model.
 
 ***
 
 ### Next Steps
 
-- goals
-- tools
-- methods
-- findings
-
+1. add class balancing to model
+2. experiment with outlier detection modeling
+3. explore using a classification model
 ***
 
-### Appendix: Instructions to Reproduce Work
+### Appendix A: Instructions to Reproduce Work
 
 1. Download project repo here:
 https://github.com/DCWineCO/clustering_wine
 
-1. Project links:
+2. Open and Run 'cluster_final_report.ipynb'
+
+3. Necessary modules are included in the repo and should not need additional work to run as long as the whole repo is stored in the same directory.
+
+### Appendix B: Links to Original Research
 
     - summary: https://data.world/food/wine-quality/workspace/project-summary?agentid=food&datasetid=wine-quality
     - research abstract: https://www.sciencedirect.com/science/article/abs/pii/S0167923609001377?via%3Dihub
 
-1. Sources:
+### Appendix C: Sources
 
 This dataset is public available for research. The details are described in [Cortez et al., 2009].
 Please include this citation if you plan to use this database:
